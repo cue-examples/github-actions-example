@@ -1,6 +1,6 @@
 package workflows
 
-Workflow2: {
+Workflow2: _#bashWorkflow & {
 	on: [
 		"push",
 		"pull_request",
@@ -8,7 +8,6 @@ Workflow2: {
 	name: "Workflow 2"
 	jobs: workflow2_job1: {
 		"runs-on": "ubuntu-latest"
-		defaults: run: shell: "bash"
 		steps: [{
 			name: "Install Go"
 			uses: "actions/setup-go@v2"

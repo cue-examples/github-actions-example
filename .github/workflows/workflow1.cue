@@ -1,6 +1,6 @@
 package workflows
 
-Workflow1: {
+Workflow1: _#bashWorkflow & {
 	on: [
 		"push",
 		"pull_request",
@@ -23,7 +23,6 @@ Workflow1: {
 				}
 			}
 			"runs-on": "${{ matrix.platform }}"
-			defaults: run: shell: "bash"
 			steps: [{
 				name: "Install Go"
 				uses: "actions/setup-go@v2"
@@ -42,7 +41,6 @@ Workflow1: {
 		workflow1_job2: {
 			needs:     "workflow1_job1"
 			"runs-on": "ubuntu-latest"
-			defaults: run: shell: "bash"
 			steps: [{
 				run: "echo Done"
 			}]

@@ -17,3 +17,7 @@ workflows: [
 		workflow: Workflow2
 	},
 ]
+
+_#bashWorkflow: github.#Workflow & {
+	jobs: [string]: defaults: run: shell: "bash"
+}
