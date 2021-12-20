@@ -32,3 +32,19 @@ _#installGo: _#step & {
 	uses: "actions/setup-go@v2"
 	with: "go-version": string
 }
+
+_#checkoutCode: _#step & {
+	name: "Checkout code"
+	uses: "actions/checkout@v2"
+}
+
+_#goTest: _#step & {
+	name: "Test"
+	run:  "go test"
+}
+
+_#run: _#step & {
+	#arg: string
+	name: "Run"
+	run:  "go run main.go \"from \(#arg) using ${{ matrix.go-version }}\""
+}

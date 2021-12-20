@@ -12,17 +12,10 @@ Workflow2: _#bashWorkflow & {
 			_#installGo & {
 				with: "go-version": "1.17.x"
 			},
-			{
-				name: "Checkout code"
-				uses: "actions/checkout@v2"
-			},
-			{
-				name: "Test"
-				run:  "go test"
-			},
-			{
-				name: "Run"
-				run:  "go run main.go \"from workflow 2 using ${{ matrix.go-version }}\""
+			_#checkoutCode,
+			_#goTest,
+			_#run & {
+				#arg: "workflow 2"
 			},
 		]
 	}
