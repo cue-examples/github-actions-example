@@ -1,5 +1,12 @@
 package workflows
 
+import "json.schemastore.org/github"
+
+workflows: [...{
+	filename: string
+	workflow: github.#Workflow
+}]
+
 workflows: [
 	{
 		filename: "workflow1.yml"
