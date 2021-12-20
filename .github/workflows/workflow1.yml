@@ -1,7 +1,3 @@
-"on":
-  - push
-  - pull_request
-name: Workflow 1
 jobs:
   workflow1_job1:
     strategy:
@@ -37,3 +33,7 @@ jobs:
         shell: bash
     steps:
       - run: echo Done
+"on":
+  - push
+  - pull_request
+name: Workflow 1

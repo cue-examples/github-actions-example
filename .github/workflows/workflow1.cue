@@ -23,20 +23,23 @@ Workflow1: _#bashWorkflow & {
 				}
 			}
 			"runs-on": "${{ matrix.platform }}"
-			steps: [{
-				name: "Install Go"
-				uses: "actions/setup-go@v2"
-				with: "go-version": "${{ matrix.go-version }}"
-			}, {
-				name: "Checkout code"
-				uses: "actions/checkout@v2"
-			}, {
-				name: "Test"
-				run:  "go test"
-			}, {
-				name: "Run"
-				run:  "go run main.go \"from workflow 1 using ${{ matrix.go-version }}\""
-			}]
+			steps: [
+				_#installGo & {
+					with: "go-version": "${{ matrix.go-version }}"
+				},
+				{
+					name: "Checkout code"
+					uses: "actions/checkout@v2"
+				},
+				{
+					name: "Test"
+					run:  "go test"
+				},
+				{
+					name: "Run"
+					run:  "go run main.go \"from workflow 1 using ${{ matrix.go-version }}\""
+				},
+			]
 		}
 		workflow1_job2: {
 			needs:     "workflow1_job1"
