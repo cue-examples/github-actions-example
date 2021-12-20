@@ -23,8 +23,9 @@ Workflow2: _#bashWorkflow & {
 				#arg: "workflow 2"
 			},
 			_#step & {
-				name: "Regenerate YAML from CUE"
-				run:  "cue cmd genworkflows"
+				name:                "Regenerate YAML from CUE"
+				"working-directory": ".github/workflows"
+				run:                 "cue cmd genworkflows"
 			},
 			_#step & {
 				name: "Check commit is clean"
