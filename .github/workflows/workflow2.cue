@@ -11,7 +11,7 @@ Workflow2: _#bashWorkflow & {
 		steps: [
 			_#step & {
 				name: "Install CUE"
-				uses: "cue-lang/setup-cue@v0.0.1"
+				uses: "cue-lang/setup-cue@v1.0.0-alpha.2"
 				with: version: "v0.4.1-beta.6"
 			},
 			_#installGo & {
